@@ -27,7 +27,22 @@ public class Main {
     }
 
     public static int climbStairs(int n) {
-        if (n >= 0 && n <= 2) return n;
-        return climbStairs(n - 1) + climbStairs(n - 2);
+//        if (n >= 0 && n <= 2) return n;
+//        return climbStairs(n - 1) + climbStairs(n - 2);
+
+        if (n <= 1) {
+            return 1;
+        }
+        int p1 = 1;
+        int p2 = 2;
+        for (int i = 3; i <= n; i++) {
+            int p3 = p1 + p2;
+            p1 = p2;
+            p2 = p3;
+        }
+
+        return p2;
     }
+
+
 }
